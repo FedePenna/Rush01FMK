@@ -1,53 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rows.c                                             :+:      :+:    :+:   */
+/*   solution.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpisani <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/17 17:34:29 by mpisani           #+#    #+#             */
-/*   Updated: 2024/11/17 17:34:46 by mpisani          ###   ########.fr       */
+/*   Created: 2024/11/17 22:16:09 by mpisani           #+#    #+#             */
+/*   Updated: 2024/11/17 22:16:11 by mpisani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	check_row_left(int *row, int clue)
-{
-	int	max;
-	int	count;
-	int	i;
+#include "rush.h"
 
-	max = 0;
-	count = 0;
+void	print_solution(int **grid)
+{
+	int		i;
+	int		j;
+	char	c;
+
 	i = 0;
 	while (i < 4)
 	{
-		if (row[i] > max)
+		j = 0;
+		while (j < 4)
 		{
-			max = row[i];
-			count++;
+			c = grid[i][j] + '0';
+			ft_putchar(c);
+			if (j < 3)
+				ft_putchar(' ');
+			j++;
 		}
+		ft_putchar('\n');
 		i++;
 	}
-	return (count == clue);
-}
-
-int	check_row_right(int *row, int clue)
-{
-	int	max;
-	int	count;
-	int	i;
-
-	max = 0;
-	count = 0;
-	i = 3;
-	while (i >= 0)
-	{
-		if (row[i] > max)
-		{
-			max = row[i];
-			count++;
-		}
-		i--;
-	}
-	return (count == clue);
 }
